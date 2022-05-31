@@ -25,4 +25,4 @@ workflows:
       - print_hello2
       - print_world2:
           requires:
-            - print_hello
+            - print_hello2

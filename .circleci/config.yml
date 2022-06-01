@@ -31,6 +31,7 @@ jobs:
           root: ~/
           paths:
             - output.txt
+      - run: cat ~/output.txt
 
   print_output_file:
     docker:

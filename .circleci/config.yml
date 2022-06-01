@@ -26,3 +26,5 @@ workflows:
       - print_world2:
           requires:
             - print_hello2
+      - print_hello2
+      - env1 

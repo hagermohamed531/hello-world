@@ -42,12 +42,9 @@ jobs:
       - run: cat ~/output.txt
 
 workflows:
-  # Name the workflow "welcome2"
-  welcome1:
-    # Run the welcome/run job in its own container
-    jobs:
-      - welcome1/run
-      - save_hello_world_output
-      - print_output_file
+  jobs:
+    - welcome1/run
+    - save_hello_world_output
+    - print_output_file
    
       

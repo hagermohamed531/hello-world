@@ -42,9 +42,11 @@ jobs:
       - run: cat ~/output.txt
 
 workflows:
-  jobs:
-    - welcome1/run
-    - save_hello_world_output
-    - print_output_file
+  my_workflow:
+    jobs:
+      - save_hello_world_output
+      - print_output_file:
+          requires:
+            - save_hello_world_output
    
       

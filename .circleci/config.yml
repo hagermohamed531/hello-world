@@ -21,12 +21,30 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - run: echo $env1
+  print_save_hello_world_output:
+      docker:
+        - image: circleci/node:13.8.0
+    steps:
+       - run: echo "text to output here" > output.txt
+        - persist_to_workspace:
+           root: ~/
+           paths:
+              - output.txt
+   print_output_file:
+      docker:
+       - image: circleci/node:13.8.0
+      steps:
+        - attach_workspace:
+           at: ~/
+       - run: cat ~/output.txt
 workflows:
   # Name the workflow "welcome2"
   welcome1:
     # Run the welcome/run job in its own container
     jobs:
       - welcome1/run
+      - print_save_hello_world_output
+      - print_output_file
       - print_env1 
       - print_hello2
       - print_world2:

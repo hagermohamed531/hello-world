@@ -59,7 +59,9 @@ workflows:
       - my_job
       - welcome1/run
       - save_hello_world_output
-      - print_output_file
+      - print_output_file:
+          requires:
+            - print_hello2      
       - print_env1 
       - print_hello2
       - print_world2:
